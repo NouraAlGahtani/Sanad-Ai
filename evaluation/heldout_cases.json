@@ -1,0 +1,451 @@
+{
+  "seed": 20261030,
+  "purpose": "Synthetic held-out incident evaluation; freeze before running",
+  "cases": [
+    {
+      "id": "H01",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-01-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 0; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    {
+      "id": "H02",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-02-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 42,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 1; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    {
+      "id": "H03",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-03-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 54,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 2; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    {
+      "id": "H04",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-04-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 66,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 3; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    {
+      "id": "H05",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-05-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 78,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 4; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    {
+      "id": "H06",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-06-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 19,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 20; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    {
+      "id": "H07",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-07-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 81,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 21; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    {
+      "id": "H08",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-08-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 90,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 22; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    {
+      "id": "H09",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-09-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 48,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 23; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    {
+      "id": "H10",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-10-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 49,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 24; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    {
+      "id": "H11",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-11-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 130,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 130; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    {
+      "id": "H12",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-12-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 217,
+        "requests_per_min": 58,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 217; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    {
+      "id": "H13",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-13-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 304,
+        "requests_per_min": 51,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 304; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    {
+      "id": "H14",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-14-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 391,
+        "requests_per_min": 67,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 391; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    {
+      "id": "H15",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-15-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 478,
+        "requests_per_min": 33,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 478; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    {
+      "id": "H16",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-16-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 600,
+        "failed_auth": 75,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    {
+      "id": "H17",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-17-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 640,
+        "failed_auth": 83,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    {
+      "id": "H18",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-18-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 680,
+        "failed_auth": 91,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    {
+      "id": "H19",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-19-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 131,
+        "failed_auth": 10,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "expected": {
+        "classification": "uncertain",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    {
+      "id": "H20",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-20-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 138,
+        "failed_auth": 11,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "expected": {
+        "classification": "uncertain",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    }
+  ]
+}

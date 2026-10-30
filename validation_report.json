@@ -1,0 +1,40 @@
+{
+  "method": "seeded synthetic independent test sequences; train=40 test=80; frozen learned calibration; not real telemetry",
+  "seed_train": 1240,
+  "seed_test": 9817,
+  "baseline": {
+    "n": 80,
+    "warning_accuracy": 0.9625,
+    "mae_requests_per_min": 24.35,
+    "tp": 21,
+    "fp": 0,
+    "fn": 3,
+    "tn": 56
+  },
+  "adaptive": {
+    "n": 80,
+    "warning_accuracy": 0.9875,
+    "mae_requests_per_min": 10.44,
+    "tp": 23,
+    "fp": 0,
+    "fn": 1,
+    "tn": 56
+  },
+  "safety_challenges": [
+    {
+      "decision": "preserve_and_escalate",
+      "disruptive_action_executed": false,
+      "authorized": true
+    },
+    {
+      "decision": "preserve_and_escalate",
+      "disruptive_action_executed": false,
+      "authorized": true
+    }
+  ],
+  "caveats": [
+    "Synthetic generator intentionally includes systematic +25 shift; results do not generalize to production",
+    "Tests evaluate forecast feedback, not Qwen model learning or recovery improvement",
+    "Policy decisions remain monitoring/escalation, not preventive infrastructure changes"
+  ]
+}\n

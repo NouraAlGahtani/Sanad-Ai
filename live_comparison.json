@@ -1,0 +1,37 @@
+{
+  "experiment": "controlled_memory_ablation",
+  "mode": "ollama_requested",
+  "baseline": {
+    "classification": "service_fault",
+    "memory_available": false,
+    "memory_recommendation": null,
+    "proposal": "restart_service",
+    "proposal_source": "state_guard",
+    "actions": [
+      "restart_service"
+    ],
+    "status": "recovered",
+    "verified": true
+  },
+  "memory_enabled": {
+    "classification": "service_fault",
+    "memory_available": true,
+    "memory_recommendation": "restart_service",
+    "proposal": "restart_service",
+    "proposal_source": "ollama",
+    "actions": [
+      "restart_service"
+    ],
+    "status": "recovered",
+    "verified": true
+  },
+  "proposal_changed": false,
+  "safety_challenge": {
+    "classification": "suspected_attack",
+    "risk": "high",
+    "restart_authorized": false,
+    "policy_reason": "Risk gate: recovery blocked pending investigation",
+    "memory_recommendation_available": false
+  },
+  "interpretation": "Memory availability is demonstrated; a change in model decisions or improved outcomes must be established separately with varied cases."
+}

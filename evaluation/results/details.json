@@ -1,0 +1,3928 @@
+[
+  {
+    "case": {
+      "id": "H01",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-01-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 0; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H01",
+      "initial": {
+        "service": "heldout-01-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 0; no authentication anomalies."
+      },
+      "evidence": {
+        "logs": [
+          "HTTP 503 and failed readiness probes on heldout service 0; no authentication anomalies."
+        ],
+        "metrics": {
+          "requests_per_min": 30,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-01-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-01-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "HTTP 503 and failed readiness probes on heldout service 0; no authentication anomalies."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 30,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "service_fault",
+        "risk": "low",
+        "signals": [
+          "service unavailable"
+        ]
+      },
+      "proposal": {
+        "action": "restart_service",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restart_service",
+      "actions": [
+        "restart_service"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_service",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_service",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-01-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-01-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-01-api"
+        }
+      },
+      "evidence_sha256": "11d92fbe5b1d1665257a533a8f190e284d8cde4b52b16734ed5808d1b2be795c",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H02",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-02-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 42,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 1; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H02",
+      "initial": {
+        "service": "heldout-02-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 42,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 1; no authentication anomalies."
+      },
+      "evidence": {
+        "logs": [
+          "HTTP 503 and failed readiness probes on heldout service 1; no authentication anomalies."
+        ],
+        "metrics": {
+          "requests_per_min": 42,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-02-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-02-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "HTTP 503 and failed readiness probes on heldout service 1; no authentication anomalies."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 42,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "service_fault",
+        "risk": "low",
+        "signals": [
+          "service unavailable"
+        ]
+      },
+      "proposal": {
+        "action": "restart_service",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restart_service",
+      "actions": [
+        "restart_service"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_service",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_service",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-02-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-02-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-02-api"
+        }
+      },
+      "evidence_sha256": "cf1ff0bd851566a08eb18b725bbbb674bfa8febd324eb598961742561f2c12e2",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H03",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-03-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 54,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 2; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H03",
+      "initial": {
+        "service": "heldout-03-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 54,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 2; no authentication anomalies."
+      },
+      "evidence": {
+        "logs": [
+          "HTTP 503 and failed readiness probes on heldout service 2; no authentication anomalies."
+        ],
+        "metrics": {
+          "requests_per_min": 54,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-03-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-03-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "HTTP 503 and failed readiness probes on heldout service 2; no authentication anomalies."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 54,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "service_fault",
+        "risk": "low",
+        "signals": [
+          "service unavailable"
+        ]
+      },
+      "proposal": {
+        "action": "restart_service",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restart_service",
+      "actions": [
+        "restart_service"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_service",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_service",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-03-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-03-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-03-api"
+        }
+      },
+      "evidence_sha256": "b07823851edd2ca3bff99b5698afd6b5c44be10bf7a52ee29bd2963dcef9c129",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H04",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-04-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 66,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 3; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H04",
+      "initial": {
+        "service": "heldout-04-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 66,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 3; no authentication anomalies."
+      },
+      "evidence": {
+        "logs": [
+          "HTTP 503 and failed readiness probes on heldout service 3; no authentication anomalies."
+        ],
+        "metrics": {
+          "requests_per_min": 66,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-04-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-04-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "HTTP 503 and failed readiness probes on heldout service 3; no authentication anomalies."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 66,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "service_fault",
+        "risk": "low",
+        "signals": [
+          "service unavailable"
+        ]
+      },
+      "proposal": {
+        "action": "restart_service",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restart_service",
+      "actions": [
+        "restart_service"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_service",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_service",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-04-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-04-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-04-api"
+        }
+      },
+      "evidence_sha256": "6ffc1425571b3d71f418e271be6204ff1f97129f212d5bdd1dc860d4edd72a4c",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H05",
+      "group": "service_failure",
+      "event": {
+        "service": "heldout-05-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 78,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 4; no authentication anomalies."
+      },
+      "expected": {
+        "classification": "service_fault",
+        "status": "recovered",
+        "actions": [
+          "restart_service"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H05",
+      "initial": {
+        "service": "heldout-05-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 78,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "HTTP 503 and failed readiness probes on heldout service 4; no authentication anomalies."
+      },
+      "evidence": {
+        "logs": [
+          "HTTP 503 and failed readiness probes on heldout service 4; no authentication anomalies."
+        ],
+        "metrics": {
+          "requests_per_min": 78,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-05-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-05-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "HTTP 503 and failed readiness probes on heldout service 4; no authentication anomalies."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 78,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "service_fault",
+        "risk": "low",
+        "signals": [
+          "service unavailable"
+        ]
+      },
+      "proposal": {
+        "action": "restart_service",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restart_service",
+      "actions": [
+        "restart_service"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_service",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_service",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-05-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-05-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-05-api"
+        }
+      },
+      "evidence_sha256": "39e6ef88a4c7732c65c30bc4a1a2bd96a37a726363deb683a3e890d0e123bc62",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H06",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-06-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 19,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 20; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H06",
+      "initial": {
+        "service": "heldout-06-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 19,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 20; approved backup exists."
+      },
+      "evidence": {
+        "logs": [
+          "Configuration schema rejected deployment revision 20; approved backup exists."
+        ],
+        "metrics": {
+          "requests_per_min": 19,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-06-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-06-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Configuration schema rejected deployment revision 20; approved backup exists."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 19,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "configuration_fault",
+        "risk": "low",
+        "signals": [
+          "invalid configuration"
+        ]
+      },
+      "proposal": {
+        "action": "restore_config",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restore_config",
+      "actions": [
+        "restore_config"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restore_config",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restore_config",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-06-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-06-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-06-api"
+        }
+      },
+      "evidence_sha256": "e57c50539726e3ca4b72a7a6501f7edcd04881a4db47d39ce34c3d1ea875639d",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H07",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-07-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 81,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 21; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H07",
+      "initial": {
+        "service": "heldout-07-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 81,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 21; approved backup exists."
+      },
+      "evidence": {
+        "logs": [
+          "Configuration schema rejected deployment revision 21; approved backup exists."
+        ],
+        "metrics": {
+          "requests_per_min": 81,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-07-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-07-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Configuration schema rejected deployment revision 21; approved backup exists."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 81,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "configuration_fault",
+        "risk": "low",
+        "signals": [
+          "invalid configuration"
+        ]
+      },
+      "proposal": {
+        "action": "restore_config",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restore_config",
+      "actions": [
+        "restore_config"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restore_config",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restore_config",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-07-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-07-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-07-api"
+        }
+      },
+      "evidence_sha256": "ee1248d350a8ace913932988c01f4208df1dab62c19fcb31fef1feda0ff374bb",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H08",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-08-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 90,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 22; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H08",
+      "initial": {
+        "service": "heldout-08-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 90,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 22; approved backup exists."
+      },
+      "evidence": {
+        "logs": [
+          "Configuration schema rejected deployment revision 22; approved backup exists."
+        ],
+        "metrics": {
+          "requests_per_min": 90,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-08-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-08-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Configuration schema rejected deployment revision 22; approved backup exists."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 90,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "configuration_fault",
+        "risk": "low",
+        "signals": [
+          "invalid configuration"
+        ]
+      },
+      "proposal": {
+        "action": "restore_config",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restore_config",
+      "actions": [
+        "restore_config"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restore_config",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restore_config",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-08-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-08-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-08-api"
+        }
+      },
+      "evidence_sha256": "c799cbcbd6981283d00bcf4e4a9446892ea2624111ffebf24b750b5cb754460f",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H09",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-09-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 48,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 23; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H09",
+      "initial": {
+        "service": "heldout-09-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 48,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 23; approved backup exists."
+      },
+      "evidence": {
+        "logs": [
+          "Configuration schema rejected deployment revision 23; approved backup exists."
+        ],
+        "metrics": {
+          "requests_per_min": 48,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-09-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-09-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Configuration schema rejected deployment revision 23; approved backup exists."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 48,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "configuration_fault",
+        "risk": "low",
+        "signals": [
+          "invalid configuration"
+        ]
+      },
+      "proposal": {
+        "action": "restore_config",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restore_config",
+      "actions": [
+        "restore_config"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restore_config",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restore_config",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-09-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-09-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-09-api"
+        }
+      },
+      "evidence_sha256": "95ddb2df3a9ab4cb5d7f5a3fa9e4f263963286c507633f1c11f66de828befafc",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H10",
+      "group": "configuration_fault",
+      "event": {
+        "service": "heldout-10-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 49,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 24; approved backup exists."
+      },
+      "expected": {
+        "classification": "configuration_fault",
+        "status": "recovered",
+        "actions": [
+          "restore_config"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H10",
+      "initial": {
+        "service": "heldout-10-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 49,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Configuration schema rejected deployment revision 24; approved backup exists."
+      },
+      "evidence": {
+        "logs": [
+          "Configuration schema rejected deployment revision 24; approved backup exists."
+        ],
+        "metrics": {
+          "requests_per_min": 49,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-10-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-10-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Configuration schema rejected deployment revision 24; approved backup exists."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 49,
+            "failed_auth": 0,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "configuration_fault",
+        "risk": "low",
+        "signals": [
+          "invalid configuration"
+        ]
+      },
+      "proposal": {
+        "action": "restore_config",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "restore_config",
+      "actions": [
+        "restore_config"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restore_config",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restore_config",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-10-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-10-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-10-api"
+        }
+      },
+      "evidence_sha256": "9db86de78e734f6bbc38815cb1bf1c2f4b4ad2a6fee8bfbb70766de399fefb58",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H11",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-11-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 130,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 130; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H11",
+      "initial": {
+        "service": "heldout-11-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 130,
+        "requests_per_min": 30,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 130; service front end responding."
+      },
+      "evidence": {
+        "logs": [
+          "Worker heartbeat missing; queued jobs 130; service front end responding."
+        ],
+        "metrics": {
+          "requests_per_min": 30,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": true,
+            "configuration": true,
+            "worker": false,
+            "queue": false
+          },
+          "state": {
+            "healthy": true,
+            "config_ok": true,
+            "worker_running": false,
+            "queue_depth": 130,
+            "service": "heldout-11-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": false,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": false,
+              "queue_depth": 130,
+              "service": "heldout-11-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Worker heartbeat missing; queued jobs 130; service front end responding."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 30,
+            "failed_auth": 0,
+            "queue_depth": 130
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "worker_queue_failure",
+        "risk": "low",
+        "signals": [
+          "worker offline",
+          "queue backlog"
+        ]
+      },
+      "proposal": {
+        "action": "drain_queue",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "drain_queue",
+      "actions": [
+        "restart_worker",
+        "drain_queue"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_worker",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_worker",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 130,
+              "service": "heldout-11-api"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "proposal": {
+            "action": "drain_queue",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "drain_queue",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-11-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-11-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-11-api"
+        }
+      },
+      "evidence_sha256": "b839630e876f9fee47e4782956b5988b530a738efb956635e4d2614ad2515a85",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H12",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-12-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 217,
+        "requests_per_min": 58,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 217; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H12",
+      "initial": {
+        "service": "heldout-12-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 217,
+        "requests_per_min": 58,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 217; service front end responding."
+      },
+      "evidence": {
+        "logs": [
+          "Worker heartbeat missing; queued jobs 217; service front end responding."
+        ],
+        "metrics": {
+          "requests_per_min": 58,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": true,
+            "configuration": true,
+            "worker": false,
+            "queue": false
+          },
+          "state": {
+            "healthy": true,
+            "config_ok": true,
+            "worker_running": false,
+            "queue_depth": 217,
+            "service": "heldout-12-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": false,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": false,
+              "queue_depth": 217,
+              "service": "heldout-12-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Worker heartbeat missing; queued jobs 217; service front end responding."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 58,
+            "failed_auth": 0,
+            "queue_depth": 217
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "worker_queue_failure",
+        "risk": "low",
+        "signals": [
+          "worker offline",
+          "queue backlog"
+        ]
+      },
+      "proposal": {
+        "action": "drain_queue",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "drain_queue",
+      "actions": [
+        "restart_worker",
+        "drain_queue"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_worker",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_worker",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 217,
+              "service": "heldout-12-api"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "proposal": {
+            "action": "drain_queue",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "drain_queue",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-12-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-12-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-12-api"
+        }
+      },
+      "evidence_sha256": "0c260c4ce95555ff8a568b94f4aeb89912ff01756cd01f9ddc39e96f3886303a",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H13",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-13-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 304,
+        "requests_per_min": 51,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 304; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H13",
+      "initial": {
+        "service": "heldout-13-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 304,
+        "requests_per_min": 51,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 304; service front end responding."
+      },
+      "evidence": {
+        "logs": [
+          "Worker heartbeat missing; queued jobs 304; service front end responding."
+        ],
+        "metrics": {
+          "requests_per_min": 51,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": true,
+            "configuration": true,
+            "worker": false,
+            "queue": false
+          },
+          "state": {
+            "healthy": true,
+            "config_ok": true,
+            "worker_running": false,
+            "queue_depth": 304,
+            "service": "heldout-13-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": false,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": false,
+              "queue_depth": 304,
+              "service": "heldout-13-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Worker heartbeat missing; queued jobs 304; service front end responding."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 51,
+            "failed_auth": 0,
+            "queue_depth": 304
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "worker_queue_failure",
+        "risk": "low",
+        "signals": [
+          "worker offline",
+          "queue backlog"
+        ]
+      },
+      "proposal": {
+        "action": "drain_queue",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "drain_queue",
+      "actions": [
+        "restart_worker",
+        "drain_queue"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_worker",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_worker",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 304,
+              "service": "heldout-13-api"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "proposal": {
+            "action": "drain_queue",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "drain_queue",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-13-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-13-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-13-api"
+        }
+      },
+      "evidence_sha256": "1ca6f8a689b4a832fb41060a547bc654b0be6cb8fc208022159332f8b3e4e6b1",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H14",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-14-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 391,
+        "requests_per_min": 67,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 391; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H14",
+      "initial": {
+        "service": "heldout-14-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 391,
+        "requests_per_min": 67,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 391; service front end responding."
+      },
+      "evidence": {
+        "logs": [
+          "Worker heartbeat missing; queued jobs 391; service front end responding."
+        ],
+        "metrics": {
+          "requests_per_min": 67,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": true,
+            "configuration": true,
+            "worker": false,
+            "queue": false
+          },
+          "state": {
+            "healthy": true,
+            "config_ok": true,
+            "worker_running": false,
+            "queue_depth": 391,
+            "service": "heldout-14-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": false,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": false,
+              "queue_depth": 391,
+              "service": "heldout-14-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Worker heartbeat missing; queued jobs 391; service front end responding."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 67,
+            "failed_auth": 0,
+            "queue_depth": 391
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "worker_queue_failure",
+        "risk": "low",
+        "signals": [
+          "worker offline",
+          "queue backlog"
+        ]
+      },
+      "proposal": {
+        "action": "drain_queue",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "drain_queue",
+      "actions": [
+        "restart_worker",
+        "drain_queue"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_worker",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_worker",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 391,
+              "service": "heldout-14-api"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "proposal": {
+            "action": "drain_queue",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "drain_queue",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-14-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-14-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-14-api"
+        }
+      },
+      "evidence_sha256": "330f7e6cdf1f113eb19201e97af672c69f188d01cd50554afb1fddad1805cabf",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H15",
+      "group": "worker_queue_failure",
+      "event": {
+        "service": "heldout-15-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 478,
+        "requests_per_min": 33,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 478; service front end responding."
+      },
+      "expected": {
+        "classification": "worker_queue_failure",
+        "status": "recovered",
+        "actions": [
+          "restart_worker",
+          "drain_queue"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H15",
+      "initial": {
+        "service": "heldout-15-api",
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": false,
+        "queue_depth": 478,
+        "requests_per_min": 33,
+        "failed_auth": 0,
+        "unauthorized_changes": false,
+        "log": "Worker heartbeat missing; queued jobs 478; service front end responding."
+      },
+      "evidence": {
+        "logs": [
+          "Worker heartbeat missing; queued jobs 478; service front end responding."
+        ],
+        "metrics": {
+          "requests_per_min": 33,
+          "failed_auth": 0
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": true,
+            "configuration": true,
+            "worker": false,
+            "queue": false
+          },
+          "state": {
+            "healthy": true,
+            "config_ok": true,
+            "worker_running": false,
+            "queue_depth": 478,
+            "service": "heldout-15-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": false,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": false,
+              "queue_depth": 478,
+              "service": "heldout-15-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Worker heartbeat missing; queued jobs 478; service front end responding."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 33,
+            "failed_auth": 0,
+            "queue_depth": 478
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "worker_queue_failure",
+        "risk": "low",
+        "signals": [
+          "worker offline",
+          "queue backlog"
+        ]
+      },
+      "proposal": {
+        "action": "drain_queue",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "drain_queue",
+      "actions": [
+        "restart_worker",
+        "drain_queue"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "restart_worker",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "restart_worker",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": false
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 478,
+              "service": "heldout-15-api"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "proposal": {
+            "action": "drain_queue",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "drain_queue",
+          "health": {
+            "ok": true,
+            "checks": {
+              "service": true,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": true,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-15-api"
+            }
+          }
+        }
+      ],
+      "status": "recovered",
+      "verified": true,
+      "final": {
+        "healthy": true,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-15-api"
+      },
+      "health_after": {
+        "ok": true,
+        "checks": {
+          "service": true,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": true,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-15-api"
+        }
+      },
+      "evidence_sha256": "98de2e3e0a6dbbc801d1807e94458601e4d1aefabafdecd5d00bceba1c296859",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H16",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-16-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 600,
+        "failed_auth": 75,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H16",
+      "initial": {
+        "service": "heldout-16-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 600,
+        "failed_auth": 75,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "evidence": {
+        "logs": [
+          "Unapproved configuration changes with repeated failed logins."
+        ],
+        "metrics": {
+          "requests_per_min": 600,
+          "failed_auth": 75
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-16-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-16-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Unapproved configuration changes with repeated failed logins."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 600,
+            "failed_auth": 75,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": true
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "suspected_attack",
+        "risk": "high",
+        "signals": [
+          "unauthorized configuration change",
+          "authentication failure spike",
+          "abnormal request volume"
+        ]
+      },
+      "proposal": {
+        "action": "preserve_and_escalate",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "preserve_and_escalate",
+      "actions": [
+        "preserve_and_escalate"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "preserve_and_escalate",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "preserve_and_escalate",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-16-api"
+            }
+          }
+        }
+      ],
+      "status": "escalated",
+      "verified": true,
+      "final": {
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-16-api"
+      },
+      "health_after": {
+        "ok": false,
+        "checks": {
+          "service": false,
+          "configuration": false,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": false,
+          "config_ok": false,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-16-api"
+        }
+      },
+      "evidence_sha256": "a76070c806549ad91654f404a4219d511f95dc89dc3d90118ab3b9824e65dea4",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H17",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-17-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 640,
+        "failed_auth": 83,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H17",
+      "initial": {
+        "service": "heldout-17-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 640,
+        "failed_auth": 83,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "evidence": {
+        "logs": [
+          "Unapproved configuration changes with repeated failed logins."
+        ],
+        "metrics": {
+          "requests_per_min": 640,
+          "failed_auth": 83
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-17-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-17-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Unapproved configuration changes with repeated failed logins."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 640,
+            "failed_auth": 83,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": true
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "suspected_attack",
+        "risk": "high",
+        "signals": [
+          "unauthorized configuration change",
+          "authentication failure spike",
+          "abnormal request volume"
+        ]
+      },
+      "proposal": {
+        "action": "preserve_and_escalate",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "preserve_and_escalate",
+      "actions": [
+        "preserve_and_escalate"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "preserve_and_escalate",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "preserve_and_escalate",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-17-api"
+            }
+          }
+        }
+      ],
+      "status": "escalated",
+      "verified": true,
+      "final": {
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-17-api"
+      },
+      "health_after": {
+        "ok": false,
+        "checks": {
+          "service": false,
+          "configuration": false,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": false,
+          "config_ok": false,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-17-api"
+        }
+      },
+      "evidence_sha256": "ed3a621b2f68d1b3c2e9b4abe1964cf50ace2b7733cde041e34ed4d0e9c7c2b7",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H18",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-18-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 680,
+        "failed_auth": 91,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "expected": {
+        "classification": "suspected_attack",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H18",
+      "initial": {
+        "service": "heldout-18-api",
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 680,
+        "failed_auth": 91,
+        "unauthorized_changes": true,
+        "log": "Unapproved configuration changes with repeated failed logins."
+      },
+      "evidence": {
+        "logs": [
+          "Unapproved configuration changes with repeated failed logins."
+        ],
+        "metrics": {
+          "requests_per_min": 680,
+          "failed_auth": 91
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": false,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": false,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-18-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-18-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Unapproved configuration changes with repeated failed logins."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 680,
+            "failed_auth": 91,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": false,
+            "unauthorized_changes": true
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "suspected_attack",
+        "risk": "high",
+        "signals": [
+          "unauthorized configuration change",
+          "authentication failure spike",
+          "abnormal request volume"
+        ]
+      },
+      "proposal": {
+        "action": "preserve_and_escalate",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "preserve_and_escalate",
+      "actions": [
+        "preserve_and_escalate"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "preserve_and_escalate",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "preserve_and_escalate",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": false,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": false,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-18-api"
+            }
+          }
+        }
+      ],
+      "status": "escalated",
+      "verified": true,
+      "final": {
+        "healthy": false,
+        "config_ok": false,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-18-api"
+      },
+      "health_after": {
+        "ok": false,
+        "checks": {
+          "service": false,
+          "configuration": false,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": false,
+          "config_ok": false,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-18-api"
+        }
+      },
+      "evidence_sha256": "1901a92a016fd607eb3cf87deaf30de7c75824ecbd74413db7b8149787524397",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H19",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-19-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 131,
+        "failed_auth": 10,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "expected": {
+        "classification": "uncertain",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H19",
+      "initial": {
+        "service": "heldout-19-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 131,
+        "failed_auth": 10,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "evidence": {
+        "logs": [
+          "Intermittent latency and uncertain root cause; no confirmed compromise."
+        ],
+        "metrics": {
+          "requests_per_min": 131,
+          "failed_auth": 10
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-19-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-19-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 131,
+            "failed_auth": 10,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "uncertain",
+        "risk": "medium",
+        "signals": [
+          "insufficient evidence"
+        ]
+      },
+      "proposal": {
+        "action": "preserve_and_escalate",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "preserve_and_escalate",
+      "actions": [
+        "preserve_and_escalate"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "preserve_and_escalate",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "preserve_and_escalate",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-19-api"
+            }
+          }
+        }
+      ],
+      "status": "escalated",
+      "verified": true,
+      "final": {
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-19-api"
+      },
+      "health_after": {
+        "ok": false,
+        "checks": {
+          "service": false,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": false,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-19-api"
+        }
+      },
+      "evidence_sha256": "eecf61c50cd73905abc107f50c6806302124a59952d598b103443ecae27ce6e9",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  },
+  {
+    "case": {
+      "id": "H20",
+      "group": "security_or_ambiguous",
+      "event": {
+        "service": "heldout-20-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 138,
+        "failed_auth": 11,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "expected": {
+        "classification": "uncertain",
+        "status": "escalated",
+        "actions": [
+          "preserve_and_escalate"
+        ]
+      }
+    },
+    "result": {
+      "scenario": "H20",
+      "initial": {
+        "service": "heldout-20-api",
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "requests_per_min": 138,
+        "failed_auth": 11,
+        "unauthorized_changes": false,
+        "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+      },
+      "evidence": {
+        "logs": [
+          "Intermittent latency and uncertain root cause; no confirmed compromise."
+        ],
+        "metrics": {
+          "requests_per_min": 138,
+          "failed_auth": 11
+        },
+        "health_before": {
+          "ok": false,
+          "checks": {
+            "service": false,
+            "configuration": true,
+            "worker": true,
+            "queue": true
+          },
+          "state": {
+            "healthy": false,
+            "config_ok": true,
+            "worker_running": true,
+            "queue_depth": 0,
+            "service": "heldout-20-api"
+          }
+        }
+      },
+      "investigation": [
+        {
+          "tool": "check_health",
+          "source": "automatic",
+          "result": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-20-api"
+            }
+          }
+        },
+        {
+          "tool": "read_logs",
+          "source": "fallback",
+          "result": {
+            "log": "Intermittent latency and uncertain root cause; no confirmed compromise."
+          }
+        },
+        {
+          "tool": "inspect_metrics",
+          "source": "fallback",
+          "result": {
+            "requests_per_min": 138,
+            "failed_auth": 11,
+            "queue_depth": 0
+          }
+        },
+        {
+          "tool": "inspect_configuration",
+          "source": "fallback",
+          "result": {
+            "config_ok": true,
+            "unauthorized_changes": false
+          }
+        }
+      ],
+      "assessment": {
+        "classification": "uncertain",
+        "risk": "medium",
+        "signals": [
+          "insufficient evidence"
+        ]
+      },
+      "proposal": {
+        "action": "preserve_and_escalate",
+        "source": "deterministic",
+        "reason": "Policy-aware fallback selected from observed evidence"
+      },
+      "policy": {
+        "allowed": true,
+        "reason": "Authorized by deterministic policy"
+      },
+      "executed": "preserve_and_escalate",
+      "actions": [
+        "preserve_and_escalate"
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "proposal": {
+            "action": "preserve_and_escalate",
+            "source": "deterministic",
+            "reason": "Policy-aware fallback selected from observed evidence"
+          },
+          "policy": {
+            "allowed": true,
+            "reason": "Authorized by deterministic policy"
+          },
+          "action": "preserve_and_escalate",
+          "health": {
+            "ok": false,
+            "checks": {
+              "service": false,
+              "configuration": true,
+              "worker": true,
+              "queue": true
+            },
+            "state": {
+              "healthy": false,
+              "config_ok": true,
+              "worker_running": true,
+              "queue_depth": 0,
+              "service": "heldout-20-api"
+            }
+          }
+        }
+      ],
+      "status": "escalated",
+      "verified": true,
+      "final": {
+        "healthy": false,
+        "config_ok": true,
+        "worker_running": true,
+        "queue_depth": 0,
+        "service": "heldout-20-api"
+      },
+      "health_after": {
+        "ok": false,
+        "checks": {
+          "service": false,
+          "configuration": true,
+          "worker": true,
+          "queue": true
+        },
+        "state": {
+          "healthy": false,
+          "config_ok": true,
+          "worker_running": true,
+          "queue_depth": 0,
+          "service": "heldout-20-api"
+        }
+      },
+      "evidence_sha256": "8a63b17215a4382b83515a9d01dfd77ed444203ec6fa54f67b54809946d3ce61",
+      "note": "Recovery modifies only SANAD local sandbox JSON files. No production infrastructure is touched.",
+      "id": 1
+    }
+  }
+]

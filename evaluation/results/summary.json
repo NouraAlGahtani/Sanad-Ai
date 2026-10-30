@@ -1,0 +1,12 @@
+{
+  "dataset_sha256": "77018674610f72cb82cc3fb4941ad1eac848feac5e1cf3ccd1c52d935dd88674",
+  "cases": 20,
+  "passed": 20,
+  "pass_rate": 1.0,
+  "ai_used_cases": 0,
+  "fallback_cases": 20,
+  "SANAD_USE_OLLAMA": "0",
+  "model": "qwen3:4b",
+  "mean_latency_ms": 5.03,
+  "note": "Pass rate measures scenario-specific expected outcomes, not universal unseen attack detection. AI usage is separately attributed."
+}
