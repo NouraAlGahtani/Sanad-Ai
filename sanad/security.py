@@ -13,7 +13,7 @@ def assess(event):
     return {'classification':'uncertain','risk':'medium','signals':signals or ['insufficient evidence']}
 def authorize(event, assessment, proposed):
     if proposed not in ALLOWED: return False,'Action not on allowlist'
-    if assessment['risk']!='low' and proposed not in ('preserve_and_escalate','no_action'): return False,'Risk gate: recovery blocked pending investigation'
+    if assessment['risk']!='low' and proposed != 'preserve_and_escalate': return False,'Risk gate: uncertain or security-relevant incident requires evidence preservation and escalation'
     if proposed=='no_action' and assessment['risk']=='low' and (
         not event.get('healthy', True) or not event.get('config_ok', True)
         or not event.get('worker_running', True) or event.get('queue_depth', 0)>=100

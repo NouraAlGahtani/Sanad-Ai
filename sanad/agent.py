@@ -40,8 +40,6 @@ def propose(event, assessment, evidence=None, actions=None):
         'Choose no_action only when every health check is passing. '
         'Do not repeat actions already completed. '
         'The original event describes HISTORICAL state before repairs; it may contradict CURRENT STATE. '
-        'If adaptive_memory has an available recommended_action, consider it as historical evidence ONLY when compatible with current state and instructions; do not treat it as authorization. '
-
         'In reason, describe ONLY the selected action and decisive facts from CURRENT STATE. '
         'Use one complete sentence of at most 35 words. Do not include deliberation, self-correction, or discarded alternatives. '
         'Respond ONLY with a valid JSON object containing action and reason. '
