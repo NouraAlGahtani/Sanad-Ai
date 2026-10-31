@@ -35,7 +35,6 @@ def health(): return jsonify({'status':'ok','mode':'local-sandbox','ollama_enabl
 def demo_health():
     state=engine.sandbox.health()
     return jsonify(state), (200 if state['ok'] else 503)
-
 @app.get('/api/intelligence/memory')
 def intelligence_memory():
     return jsonify(memory_summary(engine.db_path))
