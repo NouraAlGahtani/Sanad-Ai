@@ -69,7 +69,7 @@ SANAD is a **local, file-backed simulation**, not a production incident-response
 
 ## Identity
 
-The original SANAD golden falcon head is a custom SVG vector mark inspired by Saudi falconry heritage. It is not an official government emblem.
+The original SANAD golden falcon head is a custom SVG vector mark inspired by Saudi falconry heritage.
 
 
 ### Attribution
